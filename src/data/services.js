@@ -2,6 +2,7 @@ import { FiScissors, FiHeart, FiStar } from 'react-icons/fi';
 import { BiSpa, BiFace } from 'react-icons/bi';
 import { GiFingernail, GiFlowerPot } from 'react-icons/gi';
 import { MdOutlineBrush } from 'react-icons/md';
+import heroImage from '../assets/hero.png';
 
 export const services = [
   {
@@ -82,6 +83,18 @@ export const services = [
     price: '$75',
     duration: '60 mins',
     icon: GiFlowerPot,
-    image: 'https://images.unsplash.com/photo-1616455577660-316278788463?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    image: '/hair spa.jfif',
+    fallbackImage: '/hair spa.jfif',
+  },
+  {
+    id: 9,
+    title: 'Luxe Hair Repair',
+    category: 'Hair',
+    description: 'A restorative hair repair ritual designed to strengthen roots, smooth texture, and revive shine.',
+    price: '$140',
+    duration: '75 mins',
+    icon: GiFlowerPot,
+    image: '/hair repair.webp',
+    fallbackImage: '/hair repair.webp',
   }
 ];

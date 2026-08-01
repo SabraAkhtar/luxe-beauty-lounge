@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from './ServiceCard.module.css';
 
@@ -9,6 +9,8 @@ const itemVariants = {
 
 const ServiceCard = ({ service }) => {
   const Icon = service.icon;
+  const [imageSrc, setImageSrc] = useState(service.fallbackImage || service.image);
+  const fallbackImage = service.fallbackImage || service.image;
 
   return (
     <motion.div 
@@ -18,10 +20,15 @@ const ServiceCard = ({ service }) => {
     >
       <div className={styles.imageContainer}>
         <img 
-          src={service.image} 
+          src={imageSrc} 
           alt={service.title} 
           loading="lazy" 
-          className={styles.image} 
+          className={styles.image}
+          onError={() => {
+            if (imageSrc !== fallbackImage) {
+              setImageSrc(fallbackImage);
+            }
+          }}
         />
         <div className={styles.overlay}>
           <div className={styles.priceTag}>Starts at {service.price}</div>
