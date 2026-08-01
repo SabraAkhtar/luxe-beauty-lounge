@@ -25,6 +25,11 @@ function App() {
       infinite: false,
     });
 
+    document.body.style.overflow = 'auto';
+    document.body.style.overflowY = 'auto';
+    document.documentElement.style.overflow = 'auto';
+    document.documentElement.style.overflowY = 'auto';
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -34,6 +39,10 @@ function App() {
 
     return () => {
       lenis.destroy();
+      document.body.style.overflow = '';
+      document.body.style.overflowY = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.overflowY = '';
     };
   }, []);
 
