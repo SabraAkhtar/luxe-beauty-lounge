@@ -1,0 +1,88 @@
+.section {
+  position: relative;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: #FFFDFB;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.meshGradient {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(at 100% 0%, rgba(212, 175, 55, 0.05) 0px, transparent 50%),
+              radial-gradient(at 0% 100%, rgba(27, 13, 42, 0.03) 0px, transparent 50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.goldGlow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.smallLabel {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.mainHeading {
+  font-size: 3.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-color);
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--soft-gray);
+  line-height: 1.8;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  align-items: center; /* helps popular card scale nicely */
+}
+
+@media (max-width: 1200px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+}

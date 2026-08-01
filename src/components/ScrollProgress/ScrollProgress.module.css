@@ -1,0 +1,17 @@
+.scrollProgressContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.scrollProgressIndicator {
+  height: 100%;
+  background: var(--gold-gradient);
+  transform-origin: 0% 50%;
+  will-change: transform;
+}

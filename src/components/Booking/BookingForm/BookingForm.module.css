@@ -1,0 +1,126 @@
+.formContainer {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 32px;
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.dateTimeRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  grid-column: span 2;
+}
+
+.fullWidth {
+  margin-top: 1rem;
+}
+
+.submitBtn {
+  position: relative;
+  width: 100%;
+  padding: 1.25rem;
+  margin-top: 2rem;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: var(--radius-full);
+  color: white;
+  font-family: var(--font-button);
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.submitBtn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.btnText {
+  position: relative;
+  z-index: 2;
+}
+
+.loaderIcon {
+  animation: spin 1s linear infinite;
+  font-size: 1.25rem;
+  z-index: 2;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.btnRipple {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--gold-gradient);
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.submitBtn:hover:not(:disabled) .btnRipple {
+  opacity: 1;
+}
+
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+  color: var(--primary-color);
+}
+
+.successIcon {
+  font-size: 5rem;
+  color: #52c41a;
+  margin-bottom: 1.5rem;
+}
+
+.successState h3 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.successState p {
+  color: var(--soft-gray);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 2rem 1.5rem;
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .dateTimeRow {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,56 @@
+:root {
+  /* Color Palette */
+  --primary-color: #1B0D2A;
+  --secondary-color: #D4AF37;
+  --accent-color: #F8E9D2;
+  --background-color: #FFFDFB;
+  --dark-text: #1C1C1C;
+  --soft-gray: #777777;
+
+  /* Gradients */
+  --primary-gradient: linear-gradient(135deg, #1B0D2A 0%, #472E68 100%);
+  --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #FFD86A 100%);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+  --font-button: 'Inter', sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.4);
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+}
+
+[data-theme='dark'] {
+  --primary-color: #FFFDFB;
+  --secondary-color: #D4AF37;
+  --accent-color: #2A1F3B;
+  --background-color: #120A1C; /* Very dark purple/black */
+  --dark-text: #EAEAEA;
+  --soft-gray: #A0A0A0;
+  
+  --primary-gradient: linear-gradient(135deg, #2A1F3B 0%, #472E68 100%);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}

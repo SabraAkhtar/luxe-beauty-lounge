@@ -1,0 +1,24 @@
+.gridContainer {
+  column-count: 4;
+  column-gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .gridContainer {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .gridContainer {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .gridContainer {
+    column-count: 1;
+  }
+}

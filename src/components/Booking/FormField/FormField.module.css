@@ -1,0 +1,70 @@
+.fieldWrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  position: absolute;
+  top: 1rem;
+  left: 1.25rem;
+  color: var(--soft-gray);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  background: transparent;
+  padding: 0 0.25rem;
+}
+
+.activeLabel {
+  top: -0.6rem;
+  left: 1rem;
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  font-weight: 600;
+  background: white; /* to cover the border behind it */
+  border-radius: 4px;
+}
+
+.input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--primary-color);
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.input:focus {
+  background: white;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.inputError {
+  border-color: #ff4d4f;
+  background: rgba(255, 77, 79, 0.05);
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 4px rgba(255, 77, 79, 0.1);
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -1.25rem;
+  left: 0.5rem;
+  color: #ff4d4f;
+  font-size: 0.75rem;
+  font-weight: 500;
+}

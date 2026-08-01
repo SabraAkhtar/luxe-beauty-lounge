@@ -1,0 +1,87 @@
+import { FiScissors, FiHeart, FiStar } from 'react-icons/fi';
+import { BiSpa, BiFace } from 'react-icons/bi';
+import { GiFingernail, GiFlowerPot } from 'react-icons/gi';
+import { MdOutlineBrush } from 'react-icons/md';
+
+export const services = [
+  {
+    id: 1,
+    title: 'Hair Styling',
+    category: 'Hair',
+    description: 'Transform your look with our expert hair styling, tailored to enhance your natural beauty.',
+    price: '$85',
+    duration: '45 mins',
+    icon: FiScissors,
+    image: 'https://images.unsplash.com/photo-1560869713-7d0a29430803?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 2,
+    title: 'Hair Coloring',
+    category: 'Hair',
+    description: 'Premium color treatments from subtle highlights to complete transformations using luxury products.',
+    price: '$120',
+    duration: '120 mins',
+    icon: MdOutlineBrush,
+    image: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 3,
+    title: 'Bridal Makeup',
+    category: 'Makeup',
+    description: 'Flawless, long-lasting bridal makeup to make your special day truly unforgettable.',
+    price: '$250',
+    duration: '90 mins',
+    icon: FiHeart,
+    image: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 4,
+    title: 'Facial Treatment',
+    category: 'Skin',
+    description: 'Rejuvenate your skin with our signature deep-cleansing facial for a radiant, glowing complexion.',
+    price: '$95',
+    duration: '60 mins',
+    icon: BiFace,
+    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 5,
+    title: 'Nail Art',
+    category: 'Nails',
+    description: 'Exquisite nail art and manicure services, featuring premium polish and intricate designs.',
+    price: '$45',
+    duration: '45 mins',
+    icon: GiFingernail,
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 6,
+    title: 'Spa & Massage',
+    category: 'Spa',
+    description: 'Melt away stress with our deeply relaxing full-body massage in a tranquil environment.',
+    price: '$150',
+    duration: '90 mins',
+    icon: BiSpa,
+    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 7,
+    title: 'Skin Care',
+    category: 'Skin',
+    description: 'Advanced skin treatments customized to address your specific skin concerns and goals.',
+    price: '$110',
+    duration: '60 mins',
+    icon: FiStar,
+    image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 8,
+    title: 'Hair Spa',
+    category: 'Hair',
+    description: 'Nourishing hair spa treatment to restore moisture, shine, and vitality to damaged hair.',
+    price: '$75',
+    duration: '60 mins',
+    icon: GiFlowerPot,
+    image: 'https://images.unsplash.com/photo-1616455577660-316278788463?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  }
+];

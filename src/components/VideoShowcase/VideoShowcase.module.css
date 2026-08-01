@@ -1,0 +1,134 @@
+.section {
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: var(--background-color);
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.bannerWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(27,13,42,0.4) 0%, rgba(27,13,42,0.8) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.playButton {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 10;
+  margin-bottom: var(--spacing-md);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.playButton:hover {
+  background: var(--gold-gradient);
+  border-color: transparent;
+  color: var(--primary-color);
+}
+
+.playIcon {
+  margin-left: 5px; /* Visual center adjustment for play icon */
+  z-index: 2;
+}
+
+.pulseRing, .pulseRing2 {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  z-index: 1;
+  pointer-events: none;
+  animation: pulse 2s linear infinite;
+}
+
+.pulseRing2 {
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+.textContainer {
+  text-align: center;
+  color: white;
+}
+
+.smallLabel {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .bannerWrapper {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 768px) {
+  .playButton {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerWrapper {
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+  }
+}
