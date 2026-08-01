@@ -6,18 +6,35 @@ const LoadingScreen = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    let timer;
+    let fallbackTimer;
+
+    const completeLoading = () => {
+      clearInterval(timer);
+      clearTimeout(fallbackTimer);
+      onComplete?.();
+    };
+
+    timer = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setTimeout(onComplete, 500);
-          return 100;
+        const next = Math.min(prev + 2, 100);
+
+        if (next >= 100) {
+          completeLoading();
         }
-        return prev + 2;
+
+        return next;
       });
     }, 30);
 
-    return () => clearInterval(timer);
+    fallbackTimer = setTimeout(() => {
+      completeLoading();
+    }, 1800);
+
+    return () => {
+      clearInterval(timer);
+      clearTimeout(fallbackTimer);
+    };
   }, [onComplete]);
 
   return (
