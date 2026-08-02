@@ -10,7 +10,9 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: initial; /* Lenis handles smooth scroll */
+  overflow-y: scroll; /* always show scrollbar, prevents layout shift */
+  scrollbar-width: thin;
+  scrollbar-color: #C9A96E transparent;
 }
 
 body {
@@ -22,7 +24,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 769px) {
@@ -64,25 +66,29 @@ img {
   display: block;
 }
 
-/* Lenis Recommended CSS */
-html.lenis, html.lenis body {
-  height: auto;
+/* Webkit scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+::-webkit-scrollbar-thumb {
+  background: #C9A96E;
+  border-radius: 3px;
 }
 
-.lenis.lenis-stopped {
+::-webkit-scrollbar-thumb:hover {
+  background: #a8845a;
+}
+
+/* Modal open — prevent scroll but KEEP scrollbar visible */
+html.modal-open body {
   overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
+  /* padding compensates for scrollbar width to prevent layout shift */
+  padding-right: 6px;
 }
 
 /* Utility Classes for Glassmorphism */

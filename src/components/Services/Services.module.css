@@ -79,7 +79,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-md);
+  gap: 1.5rem;
   margin-top: var(--spacing-md);
 }
 
@@ -92,7 +92,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr;
   }

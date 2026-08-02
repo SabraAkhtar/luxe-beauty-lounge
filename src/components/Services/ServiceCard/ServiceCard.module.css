@@ -1,148 +1,166 @@
 .card {
   position: relative;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  z-index: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 4/3;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25), 0 0 20px rgba(212,175,55,0.2);
 }
 
+/* ── Image fills entire card ── */
 .imageContainer {
-  position: relative;
-  height: 240px;
-  overflow: hidden;
+  position: absolute;
+  inset: 0;
 }
 
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.6s ease;
 }
 
 .card:hover .image {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.imageFallback {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(27,13,42,0.6) 100%);
+  background: linear-gradient(135deg, #1B0D2A 0%, #472E68 100%);
   display: flex;
-  align-items: flex-end;
-  padding: var(--spacing-sm);
+  justify-content: center;
+  align-items: center;
 }
 
-.priceTag {
-  background: rgba(212, 175, 55, 0.9);
-  color: var(--primary-color);
-  font-weight: 600;
-  font-family: var(--font-button);
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-full);
-  font-size: 0.875rem;
-  backdrop-filter: blur(4px);
+.fallbackIcon {
+  font-size: 3rem;
+  color: #D4AF37;
 }
 
+/* ── Dark gradient overlay ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 5, 20, 0.92) 0%,
+    rgba(10, 5, 20, 0.4) 50%,
+    rgba(10, 5, 20, 0.1) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.card:hover .overlay {
+  background: linear-gradient(
+    to top,
+    rgba(10, 5, 20, 0.95) 0%,
+    rgba(10, 5, 20, 0.55) 55%,
+    rgba(10, 5, 20, 0.15) 100%
+  );
+}
+
+/* ── All content sits on top of image ── */
 .content {
-  padding: var(--spacing-md);
-  flex-grow: 1;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
-  position: relative;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
   z-index: 2;
+}
+
+/* Top row: price tag */
+.priceTag {
+  align-self: flex-start;
+  background: rgba(212, 175, 55, 0.95);
+  color: #1B0D2A;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-family: var(--font-button);
+}
+
+/* Bottom section */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-sm);
 }
 
 .iconWrapper {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: var(--accent-color);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--primary-color);
-  font-size: 1.25rem;
-  transition: transform 0.4s ease;
-}
-
-.card:hover .iconWrapper {
-  transform: rotateY(180deg);
-  background: var(--gold-gradient);
+  color: #D4AF37;
+  font-size: 1rem;
 }
 
 .duration {
-  font-size: 0.875rem;
-  color: var(--soft-gray);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
   font-weight: 500;
 }
 
 .title {
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-xs);
-  color: var(--primary-color);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  font-family: var(--font-heading);
 }
 
 .description {
-  color: var(--soft-gray);
-  font-size: 0.95rem;
-  margin-bottom: var(--spacing-md);
-  flex-grow: 1;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .bookBtn {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.5rem;
   background: transparent;
-  border: 1px solid var(--secondary-color);
-  color: var(--primary-color);
+  border: 1.5px solid rgba(212,175,55,0.8);
+  color: #ffffff;
   font-weight: 600;
-  border-radius: var(--radius-full);
-  transition: color var(--transition-normal);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+  font-family: var(--font-button);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  cursor: pointer;
 }
 
+.bookBtn:hover,
 .card:hover .bookBtn {
-  color: white;
+  background: #D4AF37;
+  color: #1B0D2A;
+  border-color: #D4AF37;
 }
 
 .borderGlow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 24px;
-  padding: 2px;
-  background: var(--gold-gradient);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 3;
+  display: none;
 }

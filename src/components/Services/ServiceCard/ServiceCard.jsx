@@ -9,60 +9,52 @@ const itemVariants = {
 
 const ServiceCard = ({ service }) => {
   const Icon = service.icon;
-  const [imageSrc, setImageSrc] = useState(service.fallbackImage || service.image);
-  const fallbackImage = service.fallbackImage || service.image;
+  const [imgError, setImgError] = useState(false);
 
   return (
-    <motion.div 
+    <motion.div
       className={styles.card}
       variants={itemVariants}
       whileHover="hover"
     >
+      {/* Full-card background image */}
       <div className={styles.imageContainer}>
-        <img 
-          src={imageSrc} 
-          alt={service.title} 
-          loading="lazy" 
-          className={styles.image}
-          onError={() => {
-            if (imageSrc !== fallbackImage) {
-              setImageSrc(fallbackImage);
-            }
-          }}
-        />
-        <div className={styles.overlay}>
-          <div className={styles.priceTag}>Starts at {service.price}</div>
-        </div>
-      </div>
-      
-      <div className={styles.content}>
-        <div className={styles.header}>
-          <div className={styles.iconWrapper}>
-            <Icon className={styles.icon} />
+        {!imgError ? (
+          <img
+            src={service.image}
+            alt={service.title}
+            loading="lazy"
+            className={styles.image}
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className={styles.imageFallback}>
+            <Icon className={styles.fallbackIcon} />
           </div>
-          <span className={styles.duration}>{service.duration}</span>
-        </div>
-        
-        <h3 className={styles.title}>{service.title}</h3>
-        <p className={styles.description}>{service.description}</p>
-        
-        <motion.button 
-          className={styles.bookBtn}
-          variants={{
-            hover: { scale: 1.05, backgroundColor: 'var(--primary-color)' }
-          }}
-        >
-          Book Now
-        </motion.button>
+        )}
       </div>
-      
-      {/* Decorative hover border */}
-      <motion.div 
-        className={styles.borderGlow}
-        variants={{
-          hover: { opacity: 1 }
-        }}
-      />
+
+      {/* Dark gradient overlay */}
+      <div className={styles.overlay} />
+
+      {/* Content on top of image */}
+      <div className={styles.content}>
+        {/* Price tag — top left */}
+        <div className={styles.priceTag}>Starts at {service.price}</div>
+
+        {/* Bottom section */}
+        <div className={styles.bottom}>
+          <div className={styles.header}>
+            <div className={styles.iconWrapper}>
+              <Icon />
+            </div>
+            <span className={styles.duration}>{service.duration}</span>
+          </div>
+          <h3 className={styles.title}>{service.title}</h3>
+          <p className={styles.description}>{service.description}</p>
+          <button className={styles.bookBtn}>Book Now</button>
+        </div>
+      </div>
     </motion.div>
   );
 };

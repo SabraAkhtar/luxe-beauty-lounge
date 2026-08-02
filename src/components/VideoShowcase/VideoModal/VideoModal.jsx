@@ -13,8 +13,7 @@ const VideoModal = ({ isOpen, onClose }) => {
 
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-      // Trap focus
+      document.documentElement.classList.add('modal-open');
       setTimeout(() => {
         if (modalRef.current) modalRef.current.focus();
       }, 100);
@@ -22,7 +21,7 @@ const VideoModal = ({ isOpen, onClose }) => {
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
+      document.documentElement.classList.remove('modal-open');
     };
   }, [isOpen, onClose]);
 
