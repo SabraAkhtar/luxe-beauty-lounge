@@ -2,7 +2,6 @@ import { FiScissors, FiHeart, FiStar } from 'react-icons/fi';
 import { BiSpa, BiFace } from 'react-icons/bi';
 import { GiFingernail, GiFlowerPot } from 'react-icons/gi';
 import { MdOutlineBrush } from 'react-icons/md';
-import heroImage from '../assets/hero.png';
 
 export const services = [
   {
@@ -83,8 +82,7 @@ export const services = [
     price: '$75',
     duration: '60 mins',
     icon: GiFlowerPot,
-    image: '/hair spa.jfif',
-    fallbackImage: '/hair spa.jfif',
+    image: '/hair-spa.jfif',
   },
   {
     id: 9,
@@ -94,7 +92,6 @@ export const services = [
     price: '$140',
     duration: '75 mins',
     icon: GiFlowerPot,
-    image: '/hair repair.webp',
-    fallbackImage: '/hair repair.webp',
+    image: '/hair-repair.webp',
   }
 ];

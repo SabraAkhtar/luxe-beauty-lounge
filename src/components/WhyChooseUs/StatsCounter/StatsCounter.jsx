@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { statistics } from '../../../data/about';
 import styles from './StatsCounter.module.css';
 
@@ -17,23 +19,40 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 50 } }
 };
 
+const StatItem = ({ stat }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+
+  return (
+    <motion.div ref={ref} className={styles.statItem} variants={itemVariants}>
+      <div className={styles.numberWrapper}>
+        {isInView ? (
+          <CountUp
+            end={Number(stat.number)}
+            duration={2.5}
+            className={styles.number}
+          />
+        ) : (
+          <span className={styles.number}>0</span>
+        )}
+        <span className={styles.suffix}>{stat.suffix}</span>
+      </div>
+      <span className={styles.label}>{stat.label}</span>
+    </motion.div>
+  );
+};
+
 const StatsCounter = () => {
   return (
-    <motion.div 
+    <motion.div
       className={styles.statsStrip}
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: '-50px' }}
     >
       {statistics.map((stat) => (
-        <motion.div key={stat.id} className={styles.statItem} variants={itemVariants}>
-          <div className={styles.numberWrapper}>
-            <span className={styles.number}>{stat.number}</span>
-            <span className={styles.suffix}>{stat.suffix}</span>
-          </div>
-          <span className={styles.label}>{stat.label}</span>
-        </motion.div>
+        <StatItem key={stat.id} stat={stat} />
       ))}
     </motion.div>
   );

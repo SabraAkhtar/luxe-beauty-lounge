@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import Lenis from 'lenis';
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home/Home';
 import LoadingScreen from './components/LoadingScreen/LoadingScreen';
@@ -10,41 +9,6 @@ import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Initialize Lenis for smooth scrolling
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
-    });
-
-    document.body.style.overflow = 'auto';
-    document.body.style.overflowY = 'auto';
-    document.documentElement.style.overflow = 'auto';
-    document.documentElement.style.overflowY = 'auto';
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-      document.body.style.overflow = '';
-      document.body.style.overflowY = '';
-      document.documentElement.style.overflow = '';
-      document.documentElement.style.overflowY = '';
-    };
-  }, []);
 
   return (
     <LanguageProvider>

@@ -33,7 +33,7 @@ const About = () => {
               style={{ y: yParallax }}
             >
               <img 
-                src="/luxury%20%20salon%20interior.jfif" 
+                src="/luxury-salon-interior.jfif" 
                 alt="Luxury Salon Interior" 
                 className={styles.mainImage}
                 loading="lazy"

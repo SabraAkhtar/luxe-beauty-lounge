@@ -1,7 +1,7 @@
 .gallerySection {
   position: relative;
   padding: var(--spacing-xl) var(--spacing-md);
-  background-color: #FFFDFB;
+  background-color: var(--background-color);
   overflow: hidden;
 }
 

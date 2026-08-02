@@ -41,14 +41,15 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
+  background: #ffffff;
   box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 [data-theme='dark'] .card {
-  background: rgba(255, 255, 255, 0.03);
+  background: #1E1130;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .card:hover {
@@ -123,6 +124,10 @@
   font-size: 1.5rem;
   color: var(--primary-color);
   margin-bottom: 0.25rem;
+}
+
+[data-theme='dark'] .name {
+  color: #FFFDFB;
 }
 
 .position {
